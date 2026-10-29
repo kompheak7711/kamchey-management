@@ -1,0 +1,4 @@
+node_modules/
+test/page.html
+test/shots/
+.DS_Store
