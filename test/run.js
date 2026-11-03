@@ -7,7 +7,7 @@ fs.writeFileSync(path.join(__dirname, 'page.html'), shell);
 const url = 'file://' + path.join(__dirname, 'page.html');
 const out = path.join(__dirname, 'shots'); fs.mkdirSync(out, { recursive: true });
 (async () => {
-  const browser = await chromium.launch();
+  const browser = await chromium.launch(process.env.PW_CHROMIUM ? { executablePath: process.env.PW_CHROMIUM } : {});
   const errors = [];
   async function open(opts = {}, s = seed) {
     const ctx = await browser.newContext({ viewport: opts.viewport || { width: 1200, height: 900 }, colorScheme: opts.dark ? 'dark' : 'light', timezoneId: 'Asia/Phnom_Penh' });
@@ -18,7 +18,7 @@ const out = path.join(__dirname, 'shots'); fs.mkdirSync(out, { recursive: true }
     page.on('console', m => { if (m.type() === 'error' && !/fonts\.g|ERR_|net::|Failed to load resource/.test(m.text())) errors.push(m.text()); });
     page.on('pageerror', e => errors.push('pageerror: ' + e.message));
     await page.goto(url + (opts.hash || ''));
-    await page.waitForFunction(() => !document.querySelector('#view').textContent.includes('Opening your loans'), null, { timeout: 5000 });
+    await page.waitForFunction(() => !document.querySelector('#view').textContent.includes('Loading your records'), null, { timeout: 5000 });
     await page.waitForTimeout(150);
     return { ctx, page };
   }
