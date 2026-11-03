@@ -27,8 +27,8 @@ const out = path.join(__dirname, 'shots'); fs.mkdirSync(out, { recursive: true }
   // 1. Home with examples
   let { ctx, page } = await open();
   console.log('KPIs:', await text(page, '.kpi'));
-  console.log('Attention:', await text(page, 'section:nth-of-type(2) .row'));
-  console.log('Upcoming:', await text(page, 'section:nth-of-type(3) .row'));
+  console.log('Attention:', await text(page, 'section:nth-of-type(1) .row'));
+  console.log('Upcoming:', await text(page, 'section:nth-of-type(2) .row'));
   await page.screenshot({ path: out + '/home-desktop.png', fullPage: true });
   for (const h of ['loans', 'loan-lex4', 'loan-lex2', 'titles', 'borrowers', 'borrower-bexsophea', 'payments', 'more']) {
     await page.evaluate(h => { location.hash = h; }, h); await page.waitForTimeout(120);
@@ -91,8 +91,11 @@ const out = path.join(__dirname, 'shots'); fs.mkdirSync(out, { recursive: true }
   await page.click('.head-actions [data-act=pay]');
   await page.fill('#p-prin', '999999');
   await page.click('#sheet button[type=submit]'); await page.waitForTimeout(100);
-  console.log('Over-repay error:', await text(page, '#sheet .form-error'));
-  await page.click('#sheet [data-close]');
+  console.log('Over-repay error:', await text(page, '#sheet .field-error'), '| focus:', await page.evaluate(() => document.activeElement.id));
+  await page.click('#sheet .sheet-foot [data-close]');
+  console.log('Discard prompt:', await text(page, '#ask-title'));
+  await page.click('#ask-yes'); await page.waitForTimeout(100);
+  console.log('Sheet closed after discard:', !(await page.evaluate(() => document.querySelector('#sheet').open)));
   // search and filters
   await page.evaluate(() => { location.hash = 'loans'; }); await page.waitForTimeout(100);
   await page.click('[data-act=loan-filter][data-v=behind]'); await page.waitForTimeout(50);

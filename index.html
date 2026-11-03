@@ -183,7 +183,7 @@ thead th { border-top: 0; font-size: 11.5px; font-weight: 600; letter-spacing: 0
 th.num, td.num { text-align: right; }
 tr.upcoming td { color: var(--muted); }
 .month-head { display: flex; justify-content: space-between; align-items: baseline; gap: 6px 12px; flex-wrap: wrap; }
-.month-head span { font-size: 13px; color: var(--muted); font-family: var(--font-num); }
+.month-head span { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .notes { white-space: pre-wrap; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 16px; }
 .contact { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; margin: 0; }
 .contact div { min-width: 0; }
@@ -248,6 +248,113 @@ legend { padding: 0 6px; font-weight: 600; font-size: 14px; }
   .callout-big { font-size: 24px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+
+/* ---- UI review (Nov 2026): type, spacing, icons, menus, touch, phone layout ---- */
+.mono, .amt, .kpi-num, .callout-big, .fact-num, td.num { font-family: var(--font-body); font-variant-numeric: tabular-nums; }
+.loan-no, .deed, .mono-id { font-family: var(--font-num); font-variant-numeric: tabular-nums; }
+.main { padding-block: 24px 64px; gap: 32px; }
+.brand-name small { font-size: 11px; letter-spacing: .16em; }
+.top-right { display: flex; align-items: center; gap: 8px; }
+.tabs { gap: 28px; margin-inline: 0; }
+.tab { flex: 0 0 auto; padding: 12px 2px 11px; display: inline-flex; align-items: center; gap: 6px; }
+.tab .ico { display: none; }
+.kpi { padding: 16px; gap: 4px; }
+.kpi-label, .fact dt, .callout-label, .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--muted); }
+.kpi-num { font-size: clamp(22px, 5.6vw, 28px); font-weight: 650; letter-spacing: -0.01em; }
+.fact { padding: 12px 16px; }
+.fact-num { font-size: 20px; }
+.callout { padding: 16px 20px; }
+.callout-big { font-size: 32px; font-weight: 650; letter-spacing: -0.01em; }
+.callout-side .mono { font-size: 20px; }
+.title-card { padding: 16px; gap: 12px; }
+.card { padding: 20px; gap: 16px; }
+.empty-hero { padding: 32px 24px; gap: 16px; }
+.hint, .check small { font-size: 13px; }
+.stub span { font-size: 11px; }
+thead th { font-size: 12px; }
+.banner { background: var(--sunk); justify-content: flex-start; }
+.banner > div { flex: 1 1 260px; }
+.banner .ico { color: var(--accent); width: 20px; height: 20px; }
+.filter[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.ico { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.crumbs a { display: inline-flex; align-items: center; gap: 4px; }
+.crumbs .ico { width: 16px; height: 16px; }
+.icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; flex: none; padding: 0; border-radius: 8px; border: 1px solid transparent; background: none; color: var(--muted); cursor: pointer; text-decoration: none; }
+.icon-btn:hover { background: var(--sunk); color: var(--ink); }
+.icon-btn .ico { width: 20px; height: 20px; }
+input, select, textarea { min-height: 44px; }
+.field { gap: 6px; }
+.req { margin-left: 6px; font-size: 12px; font-weight: 600; color: var(--muted); background: var(--sunk); border-radius: 4px; padding: 1px 5px; vertical-align: 1px; }
+.field-error { color: var(--bad); font-size: 13px; font-weight: 600; }
+[aria-invalid="true"] { border-color: var(--bad); }
+.date-echo { margin-top: -2px; }
+.adorn { position: relative; }
+.adorn > span { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+.adorn > input { padding-left: 26px; }
+.with-chips button { min-height: 44px; min-width: 48px; }
+.sheet-head { padding: 16px 12px 4px 20px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.sheet-body { padding: 12px 20px 20px; gap: 16px; }
+.menu-wrap { position: relative; }
+.menu-wrap > summary { list-style: none; }
+.menu-wrap > summary::-webkit-details-marker { display: none; }
+.menu { position: absolute; right: 0; top: calc(100% + 6px); z-index: 20; min-width: 200px; display: flex; flex-direction: column; padding: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); }
+.menu button { font: inherit; font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 10px; min-height: 40px; padding: 0 12px; border: 0; border-radius: 6px; background: none; color: var(--ink); text-align: left; cursor: pointer; white-space: nowrap; }
+.menu button:hover, .menu button:focus-visible { background: var(--sunk); }
+.menu button.danger { color: var(--bad); }
+.menu hr { border: 0; border-top: 1px solid var(--line); margin: 4px 0; }
+.list { overflow: visible; }
+.list > .row:first-child { border-radius: var(--r) var(--r) 0 0; }
+.list > .row:last-child { border-radius: 0 0 var(--r) var(--r); }
+.list > .row:only-child { border-radius: var(--r); }
+.row.stubbed { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 16px; align-items: start; }
+.row-ico { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: var(--sunk); color: var(--muted); }
+.row-ico.bad { background: var(--bad-bg); color: var(--bad); }
+.row-ico.warn { background: var(--warn-bg); color: var(--warn); }
+.row-ico.accent { background: var(--accent-soft); color: var(--accent); }
+.row-ico .ico { width: 20px; height: 20px; }
+.card-actions { border-top: 1px solid var(--line); padding-top: 12px; align-items: center; }
+.card-actions .menu-wrap { margin-left: auto; }
+.kv .wide { grid-column: 1 / -1; }
+.pay-side { flex-direction: row; align-items: center; gap: 4px; }
+.show-phone { display: none !important; }
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .show-phone { display: inline-flex !important; }
+  .hide-phone { display: none !important; }
+  .brand-row { flex-wrap: nowrap; padding-block: 10px; }
+  .tabs { position: fixed; left: 0; right: 0; bottom: 0; z-index: 8; gap: 0; background: var(--surface); border-top: 1px solid var(--line); padding: 0 max(4px, env(safe-area-inset-right, 0px)) env(safe-area-inset-bottom, 0px) max(4px, env(safe-area-inset-left, 0px)); }
+  .tab { flex: 1 1 0; min-width: 0; flex-direction: column; justify-content: center; gap: 3px; min-height: 58px; padding: 6px 2px; font-size: 12px; border-bottom: 0; border-top: 2px solid transparent; }
+  .tab[aria-current="page"] { color: var(--accent); border-top-color: var(--accent); }
+  .tab .ico { display: block; width: 22px; height: 22px; }
+  .tab[data-tab="more"] { display: none; }
+  .main { padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }
+  .toast { bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+  .btn, .btn.small, .top-actions .btn, .filter, .quick button { min-height: 44px; }
+  .filter { padding-inline: 14px; }
+  .icon-btn { width: 44px; height: 44px; }
+  .menu button { min-height: 44px; }
+  .check { min-height: 44px; align-items: center; }
+  .head-actions { width: 100%; }
+  .head-actions > .btn.primary { flex: 1 1 100%; }
+  .head-actions > .btn:not(.primary), .head-actions > .menu-wrap { flex: 1 1 0; }
+  .head-actions > .menu-wrap > summary { width: 100%; }
+  .page-head > .btn { width: 100%; }
+  .row.stubbed { grid-template-columns: auto minmax(0, 1fr); }
+  .row.stubbed .row-side { grid-column: 2; flex-direction: row; align-items: baseline; gap: 8px; text-align: left; margin: 4px 0 0; flex-wrap: wrap; }
+  .kv { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sched, .sched tbody { display: block; }
+  .sched thead { display: none; }
+  .sched tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; padding: 10px 14px; border-top: 1px solid var(--line); }
+  .sched tr:first-child { border-top: 0; }
+  .sched td { border: 0; padding: 0; white-space: normal; }
+  .sched .c-n { display: none; }
+  .sched .c-period { grid-column: 1; grid-row: 1; }
+  .sched .c-status { grid-column: 2; grid-row: 1; text-align: right; }
+  .sched .c-bal { grid-column: 1; grid-row: 2; text-align: left; font-size: 14px; color: var(--muted); }
+  .sched .c-bal::before { content: "Balance "; font-family: var(--font-body); }
+  .sched .c-int { grid-column: 2; grid-row: 2; font-weight: 600; }
+  .sheet-foot .btn { flex: 1 1 0; }
+}
 </style>
 
 <header class="top">
@@ -257,18 +364,23 @@ legend { padding: 0 6px; font-weight: 600; font-size: 14px; }
         <svg class="seal" viewBox="0 0 30 30" aria-hidden="true"><rect class="bg" x="1" y="1" width="28" height="28" rx="7"/><rect class="fg" x="7" y="7.5" width="16" height="15" rx="1.5" stroke-dasharray="2.6 2"/><path class="fg" d="M11 13h8M11 17h5"/></svg>
         <span class="brand-name">KamChey <small>Management</small></span>
       </a>
-      <div class="top-actions w">
-        <button class="btn" type="button" id="hdr-pay" data-act="pay">Record payment</button>
-        <button class="btn primary" type="button" id="hdr-loan" data-act="new-loan">New loan</button>
+      <div class="top-right">
+        <div class="top-actions w">
+          <button class="btn hide-phone" type="button" id="hdr-pay" data-act="pay"><i data-icon="banknote"></i>Record payment</button>
+          <button class="btn primary hide-phone" type="button" id="hdr-loan" data-act="new-loan"><i data-icon="plus"></i>New loan</button>
+          <details class="menu-wrap show-phone"><summary class="btn primary" aria-label="Create new"><i data-icon="plus"></i>New</summary>
+            <div class="menu"><button type="button" data-act="new-loan"><i data-icon="wallet"></i>New loan</button><button type="button" data-act="pay"><i data-icon="banknote"></i>Record payment</button><button type="button" data-act="new-borrower"><i data-icon="user-plus"></i>Add borrower</button></div></details>
+        </div>
+        <a class="icon-btn show-phone" href="#more" aria-label="Settings"><i data-icon="settings"></i></a>
       </div>
     </div>
     <nav class="tabs" aria-label="Sections">
-      <a class="tab" href="#home" data-tab="home">Dashboard</a>
-      <a class="tab" href="#loans" data-tab="loans">Loans</a>
-      <a class="tab" href="#titles" data-tab="titles">Collateral</a>
-      <a class="tab" href="#borrowers" data-tab="borrowers">Borrowers</a>
-      <a class="tab" href="#payments" data-tab="payments">Payments</a>
-      <a class="tab" href="#more" data-tab="more">Settings</a>
+      <a class="tab" href="#home" data-tab="home"><i data-icon="dashboard"></i><span>Dashboard</span></a>
+      <a class="tab" href="#loans" data-tab="loans"><i data-icon="wallet"></i><span>Loans</span></a>
+      <a class="tab" href="#titles" data-tab="titles"><i data-icon="file"></i><span>Collateral</span></a>
+      <a class="tab" href="#borrowers" data-tab="borrowers"><i data-icon="users"></i><span>Borrowers</span></a>
+      <a class="tab" href="#payments" data-tab="payments"><i data-icon="banknote"></i><span>Payments</span></a>
+      <a class="tab" href="#more" data-tab="more"><i data-icon="settings"></i><span>Settings</span></a>
     </nav>
   </div>
 </header>
@@ -416,6 +528,36 @@ const Engine = (() => {
     ui: { loanFilter: 'open', loanQ: '', titleFilter: 'held', titleQ: '', borrowerQ: '', payMonth: 'all' },
   };
 
+  // ---------- icons (Lucide outline shapes, inline SVG) ----------
+  const ICONS = {
+    dashboard: '<rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/>',
+    wallet: '<path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/>',
+    file: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8M16 17H8M10 9H8"/>',
+    'file-check': '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/>',
+    users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+    'user-plus': '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/>',
+    banknote: '<rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/>',
+    settings: '<path d="M20 7h-9M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/>',
+    plus: '<path d="M5 12h14M12 5v14"/>',
+    pencil: '<path d="M21.17 6.81a1 1 0 0 0-3.99-3.99L3.84 16.17a2 2 0 0 0-.5.83l-1.32 4.35a.5.5 0 0 0 .62.62l4.35-1.32a2 2 0 0 0 .83-.5z"/><path d="m15 5 4 4"/>',
+    trash: '<path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>',
+    camera: '<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/>',
+    download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>',
+    check: '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
+    more: '<circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/>',
+    x: '<path d="M18 6 6 18M6 6l12 12"/>',
+    back: '<path d="m12 19-7-7 7-7M19 12H5"/>',
+    alert: '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4M12 17h.01"/>',
+    clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+    undo: '<path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"/>',
+    info: '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>',
+  };
+  const ico = n => `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${ICONS[n] || ''}</svg>`;
+  document.querySelectorAll('i[data-icon]').forEach(el => { el.outerHTML = ico(el.dataset.icon); });
+  const moreMenu = (label, items) => `<details class="menu-wrap w"><summary class="btn" aria-label="${label}">${ico('more')}<span class="hide-phone">More</span></summary><div class="menu">${items}</div></details>`;
+  const dotsMenu = (label, items) => `<details class="menu-wrap w"><summary class="icon-btn" aria-label="${label}">${ico('more')}</summary><div class="menu">${items}</div></details>`;
+  const menuItem = (act, id, text, icon, danger = false) => `<button type="button" class="${danger ? 'danger' : ''}" data-act="${act}" data-id="${id}">${ico(icon)}${text}</button>`;
+
   // ---------- small helpers ----------
   const $ = (sel, root = document) => root.querySelector(sel);
   const view = $('#view');
@@ -427,6 +569,7 @@ const Engine = (() => {
   const pct = r => `${(Math.round(r * 10000) / 100).toFixed(2)}%`;
   const pct0 = r => `${Math.round(r * 100)}%`;
   const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const WEEKDAY = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const MONTH = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const fmtDate = s => { if (!Engine.isDate(s)) return '—'; const [y, m, d] = s.split('-').map(Number); return `${d} ${MON[m - 1]} ${y}`; };
   const fmtMonth = ym => { const [y, m] = ym.split('-').map(Number); return `${MONTH[m - 1]} ${y}`; };
@@ -443,8 +586,9 @@ const Engine = (() => {
   const dayWord = n => (n === 0 ? 'today' : n === 1 ? 'tomorrow' : `in ${n} days`);
   const groupBy = (items, key) => { const m = new Map(); for (const x of items) { const k = key(x); if (!m.has(k)) m.set(k, []); m.get(k).push(x); } return m; };
   const fv = (form, n) => { const el = form.elements.namedItem(n); return el ? String(el.value ?? '').trim() : ''; };
-  const field = (id, label, control, hint = '') => `<div class="field"><label for="${id}">${label}</label>${control}${hint ? `<div class="hint">${hint}</div>` : ''}</div>`;
-  class UserError extends Error {}
+  const field = (id, label, control, hint = '', req = false) => `<div class="field"><label for="${id}">${label}${req ? '<span class="req" aria-hidden="true">Required</span>' : ''}</label>${req ? control.replace(/<(input|select)\b/, '<$1 aria-required="true"') : control}${hint ? `<div class="hint">${hint}</div>` : ''}</div>`;
+  const moneyIn = (id, name, value, placeholder = '') => `<div class="adorn"><span aria-hidden="true">$</span><input id="${id}" name="${name}" inputmode="decimal" autocomplete="off"${placeholder ? ` placeholder="${placeholder}"` : ''} value="${value ?? ''}"></div>`;
+  class UserError extends Error { constructor(msg, field) { super(msg); this.field = field; } }
 
   // ---------- data access ----------
   async function dbCall(fn) {
@@ -528,7 +672,7 @@ const Engine = (() => {
 
   function exampleBanner() {
     if (!hasExamples()) return '';
-    return `<div class="banner"><div><b>You are viewing sample data.</b> Clear it before entering your own loans.</div><button class="btn small w" type="button" data-act="remove-examples">Clear sample data</button></div>`;
+    return `<div class="banner">${ico('info')}<div><b>You are viewing sample data.</b> Clear it before entering your own loans.</div><button class="btn small w" type="button" data-act="remove-examples">Clear sample data</button></div>`;
   }
 
   function viewHome(M) {
@@ -551,15 +695,15 @@ const Engine = (() => {
     for (const l of loans) {
       const c = M.calc.get(l.id); if (!c) continue;
       const b = S.borrowers.get(l.borrowerId) || {};
-      const base = { href: '#loan-' + l.id, name: b.name || 'Unknown borrower', no: loanNo(l), phone: b.phone };
-      if (c.status === 'overdue') att.push({ ...base, sev: 4, text: `Matured ${fmtDate(c.maturity)}. ${money(c.outstanding)} principal outstanding.`, chip: chip(`${plural(Engine.daysBetween(c.maturity, M.asOf), 'day')} past maturity`, 'bad') });
-      if (!c.closed && c.interestOwed > 0.004) att.push({ ...base, sev: c.daysLate > 0 ? 3 : 2, text: `${money(c.interestOwed)} interest overdue since ${fmtDate(c.firstUnpaid && c.firstUnpaid.due)}.`, chip: c.daysLate > 0 ? chip(`${plural(c.daysLate, 'day')} overdue`, 'bad') : chip('Due today', 'warn') });
-      if (c.closed && c.interestOwed > 0.004) att.push({ ...base, sev: 2, text: `Principal repaid. ${money(c.interestOwed)} interest still outstanding.`, chip: chip('Interest outstanding', 'warn') });
+      const base = { href: '#loan-' + l.id, name: b.name || 'Unknown borrower', no: loanNo(l), phone: b.phone, icon: 'clock', tone: 'bad' };
+      if (c.status === 'overdue') att.push({ ...base, icon: 'alert', sev: 4, text: `Matured ${fmtDate(c.maturity)}. ${money(c.outstanding)} principal outstanding.`, chip: chip(`${plural(Engine.daysBetween(c.maturity, M.asOf), 'day')} past maturity`, 'bad') });
+      if (!c.closed && c.interestOwed > 0.004) att.push({ ...base, tone: c.daysLate > 0 ? 'bad' : 'warn', sev: c.daysLate > 0 ? 3 : 2, text: `${money(c.interestOwed)} interest overdue since ${fmtDate(c.firstUnpaid && c.firstUnpaid.due)}.`, chip: c.daysLate > 0 ? chip(`${plural(c.daysLate, 'day')} overdue`, 'bad') : chip('Due today', 'warn') });
+      if (c.closed && c.interestOwed > 0.004) att.push({ ...base, tone: 'warn', sev: 2, text: `Principal repaid. ${money(c.interestOwed)} interest still outstanding.`, chip: chip('Interest outstanding', 'warn') });
     }
     for (const t of held) {
       if (!readyToReturn(t, M)) continue;
       const l = S.loans.get(t.loanId), b = S.borrowers.get(l.borrowerId) || {};
-      att.push({ href: '#loan-' + l.id, name: b.name || 'Unknown borrower', no: loanNo(l), phone: b.phone, sev: 1, text: `Loan settled. Return title ${esc(t.titleNumber || '')}${t.keptAt ? ` (stored in ${esc(t.keptAt)})` : ''}.`, chip: chip('Ready to return', 'accent') });
+      att.push({ href: '#loan-' + l.id, name: b.name || 'Unknown borrower', no: loanNo(l), phone: b.phone, icon: 'file-check', tone: 'accent', sev: 1, text: `Loan settled. Return title ${esc(t.titleNumber || '')}${t.keptAt ? ` (stored in ${esc(t.keptAt)})` : ''}.`, chip: chip('Ready to return', 'accent') });
     }
     att.sort((a, b) => b.sev - a.sev);
 
@@ -578,16 +722,15 @@ const Engine = (() => {
       </div>
       <section>
         <div class="sec-head"><h2>Action required</h2><p>${att.length ? plural(att.length, 'item') : ''}</p></div>
-        ${att.length ? `<div class="list">${att.map(a => `<a class="row" href="${a.href}">
-          <div class="row-main"><div class="row-title">${esc(a.name)} <span class="loan-no">${a.no}</span></div><div class="row-sub">${a.text}</div>${a.phone ? `<div class="row-sub">${esc(a.phone)}</div>` : ''}</div>
-          <div class="row-side">${a.chip}</div></a>`).join('')}</div>`
+        ${att.length ? `<div class="list">${att.map(a => `<a class="row stubbed" href="${a.href}"><div class="row-ico ${a.tone}">${ico(a.icon)}</div>
+          <div class="row-main"><div class="row-title">${esc(a.name)} <span class="loan-no">${a.no}</span></div><div class="row-sub">${a.text}${a.phone ? ` · ${esc(a.phone)}` : ''}</div><div class="row-chips">${a.chip}</div></div></a>`).join('')}</div>`
         : '<div class="calm">No overdue payments or collateral to return.</div>'}
       </section>
       <section>
         <div class="sec-head"><h2>Upcoming interest (next 14 days)</h2><p>${up.length ? `${money(upSum)} expected` : ''}</p></div>
         ${up.length ? `<div class="list">${up.map(({ l, c, b }) => {
           const [, m, d] = c.next.due.split('-').map(Number);
-          return `<a class="row" href="#loan-${l.id}"><div class="stub" aria-hidden="true"><b>${d}</b><span>${MON[m - 1]}</span></div>
+          return `<a class="row stubbed" href="#loan-${l.id}"><div class="stub" aria-hidden="true"><b>${d}</b><span>${MON[m - 1]}</span></div>
             <div class="row-main"><div class="row-title">${esc((b && b.name) || 'Unknown borrower')} <span class="loan-no">${loanNo(l)}</span></div>
             <div class="row-sub">Due ${fmtDate(c.next.due)} (${dayWord(Engine.daysBetween(M.asOf, c.next.due))})${b && b.phone ? ` · ${esc(b.phone)}` : ''}</div></div>
             <div class="row-side"><div class="amt">${money(c.next.interest - c.next.paid)}</div><div class="row-sub">${pct(c.rate)} of ${moneyShort(c.next.balance)}</div></div></a>`;
@@ -604,7 +747,7 @@ const Engine = (() => {
         <li><b>Record payments.</b> Monthly interest, and principal when it is repaid.</li>
         <li><b>Return the collateral.</b> Once principal and interest are settled, mark the title as returned.</li>
       </ol>
-      <div class="btns w"><button class="btn primary" type="button" data-act="new-loan">Create first loan</button></div>
+      <div class="btns w"><button class="btn primary" type="button" data-act="new-loan">${ico('plus')}Create first loan</button></div>
     </section>`;
   }
 
@@ -635,7 +778,7 @@ const Engine = (() => {
     const titleNos = id => (M.titles.get(id) || []).map(t => t.titleNumber).join(' ');
     const rows = items.filter(F[f]).filter(x => !q || [x.b && x.b.name, x.b && x.b.phone, loanNo(x.l), titleNos(x.l.id)].join(' ').toLowerCase().includes(q)).sort(sortLoans);
     return `<div class="page-head"><div><h1>Loans</h1><p class="lede">${plural(items.filter(F.open).length, 'active loan')} · ${plural(items.filter(F.closed).length, 'settled loan')}</p></div>
-        <button class="btn primary w" type="button" data-act="new-loan">New loan</button></div>
+        <button class="btn primary w" type="button" data-act="new-loan">${ico('plus')}New loan</button></div>
       <div class="toolbar">
         <div class="filters" role="group" aria-label="Filter loans">${Object.keys(F).map(k => `<button type="button" class="filter" data-act="loan-filter" data-v="${k}" aria-pressed="${k === f}">${LABEL[k]} <span class="count">${items.filter(F[k]).length}</span></button>`).join('')}</div>
         <input class="search" id="loan-q" type="search" placeholder="Search by name, phone, loan or title number" aria-label="Search loans" value="${esc(S.ui.loanQ)}">
@@ -673,10 +816,10 @@ const Engine = (() => {
 
   function viewLoan(M, r) {
     const l = S.loans.get(r.id);
-    if (!l) return `<nav class="crumbs"><a href="#loans">Loans</a></nav><div class="calm">This loan could not be found. It may have been deleted.</div>`;
+    if (!l) return `<nav class="crumbs"><a href="#loans">${ico('back')}Loans</a></nav><div class="calm">This loan could not be found. It may have been deleted.</div>`;
     const c = M.calc.get(l.id);
     const b = S.borrowers.get(l.borrowerId);
-    const crumbs = `<nav class="crumbs"><a href="#loans">Loans</a><span aria-hidden="true">/</span><span>${loanNo(l)}</span></nav>`;
+    const crumbs = `<nav class="crumbs"><a href="#loans">${ico('back')}Loans</a><span aria-hidden="true">/</span><span>${loanNo(l)}</span></nav>`;
     if (!c || !c.valid) return `${crumbs}<div class="notice">Loan ${loanNo(l)} is missing its disbursement date or principal, so interest can’t be calculated.</div><div class="btns w"><button class="btn primary" type="button" data-act="edit-loan" data-id="${l.id}">Edit loan</button></div>`;
     const pays = (M.pays.get(l.id) || []).slice().sort((a, b2) => cmp(b2.date, a.date) || cmp(b2.createdAt, a.createdAt));
     const titles = (M.titles.get(l.id) || []).slice().sort((a, b2) => (a.status === 'Returned') - (b2.status === 'Returned'));
@@ -694,21 +837,20 @@ const Engine = (() => {
           <div class="row-chips">${statusChips(c)}</div>
         </div>
         <div class="head-actions w">
-          ${!c.closed || c.interestOwed > 0.004 ? `<button class="btn primary" type="button" data-act="pay" data-loan="${l.id}">Record payment</button>` : ''}
-          ${!c.closed ? `<button class="btn" type="button" data-act="payoff" data-loan="${l.id}">Settle loan</button>` : ''}
-          <button class="btn" type="button" data-act="edit-loan" data-id="${l.id}">Edit</button>
-          <button class="btn danger" type="button" data-act="del-loan" data-id="${l.id}">Delete</button>
+          ${!c.closed || c.interestOwed > 0.004 ? `<button class="btn primary" type="button" data-act="pay" data-loan="${l.id}">${ico('banknote')}Record payment</button>` : ''}
+          ${!c.closed ? `<button class="btn" type="button" data-act="payoff" data-loan="${l.id}">${ico('check')}Settle loan</button>` : ''}
+          ${moreMenu('More loan actions', menuItem('edit-loan', l.id, 'Edit loan', 'pencil') + '<hr>' + menuItem('del-loan', l.id, 'Delete loan', 'trash', true))}
         </div>
       </div>
       <dl class="facts">
         ${fact('Principal', money(c.principal), `Disbursed ${fmtDate(l.startDate)}`)}
         ${fact('Principal repaid', money(c.repaid), c.closed ? `In full on ${fmtDate(c.closedOn)}` : `${pct0(c.repaid / c.principal)} of principal`)}
         ${fact('Outstanding principal', money(c.outstanding), c.maturity ? `${c.pastMaturity ? 'Matured' : 'Matures'} ${fmtDate(c.maturity)}` : 'No maturity date')}
-        ${fact('Interest rate', `${pct(c.rate)} per month`, 'On outstanding principal')}
+        ${fact('Interest rate', pct(c.rate), 'Per month, on outstanding principal')}
       </dl>
       ${loanCallout(c, q)}
       <section>
-        <div class="sec-head"><h2>Collateral</h2><button class="btn small w" type="button" data-act="add-title" data-loan="${l.id}">Add collateral</button></div>
+        <div class="sec-head"><h2>Collateral</h2><button class="btn small w" type="button" data-act="add-title" data-loan="${l.id}">${ico('plus')}Add collateral</button></div>
         ${titles.length ? `<div class="stack">${titles.map(t => titleCard(t, M, false)).join('')}</div>` : '<div class="calm">No collateral recorded for this loan.</div>'}
       </section>
       <section>
@@ -718,9 +860,9 @@ const Engine = (() => {
       </section>
       <section>
         <div class="sec-head"><h2>Interest schedule</h2><p>${ruleText}</p></div>
-        <div class="table-wrap"><table>
+        <div class="table-wrap"><table class="sched">
           <thead><tr><th>No.</th><th>Period</th><th class="num">Opening balance</th><th class="num">Interest</th><th>Status</th></tr></thead>
-          <tbody>${sched.map(p => `<tr class="${p.state}"><td>${p.n}</td><td>${fmtDate(p.start)} – ${fmtDate(p.due)}${p.partial ? ' (partial month)' : ''}</td><td class="num">${money(p.balance)}</td><td class="num">${money(p.interest)}</td><td>${periodChip(p, c.asOf)}</td></tr>`).join('')}</tbody>
+          <tbody>${sched.map(p => `<tr class="${p.state}"><td class="c-n">${p.n}</td><td class="c-period">${fmtDate(p.start)} – ${fmtDate(p.due)}${p.partial ? ' (partial month)' : ''}</td><td class="num c-bal">${money(p.balance)}</td><td class="num c-int">${money(p.interest)}</td><td class="c-status">${periodChip(p, c.asOf)}</td></tr>`).join('')}</tbody>
         </table></div>
       </section>
       ${l.notes ? `<section><h2>Notes</h2><p class="notes">${esc(l.notes)}</p></section>` : ''}`;
@@ -731,7 +873,7 @@ const Engine = (() => {
     const canAdd = S.assets && S.canWrite;
     if (!ids.length && !canAdd) return '';
     return `<div class="photos">${ids.map((id, i) => `<button type="button" class="thumb" data-act="photo" data-id="${t.id}" data-asset="${id}" aria-label="Open photo ${i + 1} of title ${esc(t.titleNumber)}"><img src="/_blob/${id}" alt="" loading="lazy"></button>`).join('')}
-      ${canAdd ? `<label class="btn small file-btn w" for="ph-${t.id}">Add photo<input type="file" id="ph-${t.id}" accept="image/*" multiple data-photo="${t.id}"></label>` : ''}</div>`;
+      ${canAdd ? `<label class="btn small file-btn w" for="ph-${t.id}">${ico('camera')}Add photo<input type="file" id="ph-${t.id}" accept="image/*" multiple data-photo="${t.id}"></label>` : ''}</div>`;
   }
 
   function titleCard(t, M, showLoan) {
@@ -750,19 +892,18 @@ const Engine = (() => {
       ['Storage location', esc(t.keptAt)],
       ['Loan-to-value (LTV)', !returned && c && !c.closed && value > 0 ? pct0(c.outstanding / value) : ''],
       ['Returned to', returned ? esc(t.returnedTo) : ''],
-      ['Return note', returned ? esc(t.returnNote) : ''],
-      ['Notes', esc(t.notes)],
+      ['Return note', returned ? esc(t.returnNote) : '', 'wide'],
+      ['Notes', esc(t.notes), 'wide'],
     ].filter(x => x[1]);
     return `<article class="title-card ${returned ? 'is-returned' : ''}">
       <div class="title-top"><span class="deed">${esc(t.titleNumber || 'No title number')}</span>${state}</div>
       ${showLoan ? `<div class="row-sub">${l ? `<a href="#loan-${l.id}">${esc((b && b.name) || 'Unknown borrower')} · ${loanNo(l)}</a>${c ? ` · ${c.closed ? (c.interestOwed > 0.004 ? `principal repaid, ${money(c.interestOwed)} interest outstanding` : 'loan settled') : `${money(c.outstanding)} outstanding`}` : ''}` : 'Loan deleted'}</div>` : ''}
-      ${kv.length ? `<dl class="kv">${kv.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>` : ''}
+      ${kv.length ? `<dl class="kv">${kv.map(([k, v, w]) => `<div${w ? ' class="wide"' : ''}><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>` : ''}
       ${photoStrip(t)}
       <div class="card-actions w">
-        ${returned ? `<button class="btn small" type="button" data-act="unreturn-title" data-id="${t.id}">Undo return</button>`
-          : `<button class="btn small ${ready ? 'primary' : ''}" type="button" data-act="return-title" data-id="${t.id}">Mark as returned</button>`}
-        <button class="btn small" type="button" data-act="edit-title" data-id="${t.id}">Edit</button>
-        <button class="btn small danger" type="button" data-act="del-title" data-id="${t.id}">Delete</button>
+        ${returned ? `<button class="btn small" type="button" data-act="unreturn-title" data-id="${t.id}">${ico('undo')}Undo return</button>`
+          : `<button class="btn small ${ready ? 'primary' : ''}" type="button" data-act="return-title" data-id="${t.id}">${ico('file-check')}Mark as returned</button>`}
+        ${dotsMenu('More collateral actions', menuItem('edit-title', t.id, 'Edit collateral', 'pencil') + '<hr>' + menuItem('del-title', t.id, 'Delete collateral', 'trash', true))}
       </div>
     </article>`;
   }
@@ -779,7 +920,7 @@ const Engine = (() => {
     const held = all.filter(F.held);
     const heldValue = held.reduce((s, t) => s + (Number(t.value) || 0), 0);
     return `<div class="page-head"><div><h1>Collateral</h1><p class="lede">${plural(held.length, 'title')} held${heldValue ? ` · est. value ${moneyShort(heldValue)}` : ''}</p></div>
-        <button class="btn primary w" type="button" data-act="add-title">Add collateral</button></div>
+        <button class="btn primary w" type="button" data-act="add-title">${ico('plus')}Add collateral</button></div>
       <div class="toolbar">
         <div class="filters" role="group" aria-label="Filter collateral">${Object.keys(F).map(k => `<button type="button" class="filter" data-act="title-filter" data-v="${k}" aria-pressed="${k === f}">${LABEL[k]} <span class="count">${all.filter(F[k]).length}</span></button>`).join('')}</div>
         <input class="search" id="title-q" type="search" placeholder="Search by title number, location or owner" aria-label="Search collateral" value="${esc(S.ui.titleQ)}">
@@ -806,7 +947,7 @@ const Engine = (() => {
     const all = [...S.borrowers.values()].sort(byName);
     const rows = all.filter(b => !q || [b.name, b.phone, b.phone2, b.idNumber, b.address, b.guarantorName].join(' ').toLowerCase().includes(q));
     return `<div class="page-head"><div><h1>Borrowers</h1><p class="lede">${plural(all.length, 'borrower')}</p></div>
-        <button class="btn primary w" type="button" data-act="new-borrower">Add borrower</button></div>
+        <button class="btn primary w" type="button" data-act="new-borrower">${ico('user-plus')}Add borrower</button></div>
       <div class="toolbar"><input class="search" id="borrower-q" type="search" placeholder="Search by name, phone or ID number" aria-label="Search borrowers" value="${esc(S.ui.borrowerQ)}"></div>
       ${rows.length ? `<div class="list">${rows.map(b => {
         const t = borrowerTotals(M, b.id);
@@ -820,23 +961,23 @@ const Engine = (() => {
 
   function viewBorrower(M, r) {
     const b = S.borrowers.get(r.id);
-    if (!b) return `<nav class="crumbs"><a href="#borrowers">Borrowers</a></nav><div class="calm">This borrower could not be found. They may have been deleted.</div>`;
+    if (!b) return `<nav class="crumbs"><a href="#borrowers">${ico('back')}Borrowers</a></nav><div class="calm">This borrower could not be found. They may have been deleted.</div>`;
     const t = borrowerTotals(M, b.id);
     const loans = t.loans.map(l => ({ l, c: M.calc.get(l.id), b })).filter(x => x.c).sort(sortLoans);
     const contact = [
       ['Phone', esc(b.phone)],
       ['Alternate phone / Telegram', b.phone2 && esc(b.phone2)],
       ['Address', esc(b.address)],
-      ['National ID number', b.idNumber && `<span class="mono">${esc(b.idNumber)}</span>`],
+      ['National ID number', b.idNumber && `<span class="mono-id">${esc(b.idNumber)}</span>`],
       ['Guarantor', [b.guarantorName && esc(b.guarantorName), b.guarantorPhone && esc(b.guarantorPhone)].filter(Boolean).join(' · ')],
     ].filter(x => x[1]);
-    return `<nav class="crumbs"><a href="#borrowers">Borrowers</a><span aria-hidden="true">/</span><span>${esc(b.name)}</span></nav>
+    return `<nav class="crumbs"><a href="#borrowers">${ico('back')}Borrowers</a><span aria-hidden="true">/</span><span>${esc(b.name)}</span></nav>
       <div class="detail-head">
         <div class="detail-id"><div class="eyebrow">Borrower</div><h1>${esc(b.name || 'No name')}</h1>${t.behind ? `<div class="row-chips">${chip('In arrears', 'bad')}</div>` : ''}</div>
         <div class="head-actions w">
-          <button class="btn primary" type="button" data-act="new-loan" data-borrower="${b.id}">New loan</button>
-          <button class="btn" type="button" data-act="edit-borrower" data-id="${b.id}">Edit borrower</button>
-          <button class="btn danger" type="button" data-act="del-borrower" data-id="${b.id}">Delete</button>
+          <button class="btn primary" type="button" data-act="new-loan" data-borrower="${b.id}">${ico('plus')}New loan</button>
+          <button class="btn" type="button" data-act="edit-borrower" data-id="${b.id}">${ico('pencil')}Edit borrower</button>
+          ${moreMenu('More borrower actions', menuItem('del-borrower', b.id, 'Delete borrower', 'trash', true))}
         </div>
       </div>
       ${contact.length ? `<dl class="contact">${contact.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>`
@@ -862,8 +1003,8 @@ const Engine = (() => {
         <div class="row-title">${fmtDate(p.date)}${showLoan ? (l ? ` · <a href="#loan-${l.id}">${esc((b && b.name) || 'Unknown borrower')}</a> <span class="loan-no">${loanNo(l)}</span>` : ' · Deleted loan') : ''}</div>
         <div class="row-sub">${what}${p.method ? ' · ' + esc(p.method) : ''}${p.notes ? ' · ' + esc(p.notes) : ''}</div>
       </div>
-      <div class="row-side"><div class="amt">${money(i + pr)}</div>
-        <div class="row-actions w"><button type="button" class="link" data-act="edit-pay" data-id="${p.id}">Edit</button><button type="button" class="link danger" data-act="del-pay" data-id="${p.id}">Delete</button></div>
+      <div class="row-side pay-side"><div class="amt">${money(i + pr)}</div>
+        ${dotsMenu('Payment actions', menuItem('edit-pay', p.id, 'Edit payment', 'pencil') + '<hr>' + menuItem('del-pay', p.id, 'Delete payment', 'trash', true))}
       </div></div>`;
   }
 
@@ -875,7 +1016,7 @@ const Engine = (() => {
     const sumI = shown.reduce((s, p) => s + (Number(p.interest) || 0), 0), sumP = shown.reduce((s, p) => s + (Number(p.principal) || 0), 0);
     const groups = groupBy(shown, p => p.date.slice(0, 7));
     return `<div class="page-head"><div><h1>Payments</h1><p class="lede">${plural(shown.length, 'payment')} · interest ${money(sumI)} · principal ${money(sumP)}</p></div>
-        <button class="btn primary w" type="button" data-act="pay">Record payment</button></div>
+        <button class="btn primary w" type="button" data-act="pay">${ico('banknote')}Record payment</button></div>
       <div class="toolbar"><div class="field"><label for="pay-month">Period</label><select id="pay-month">
         <option value="all" ${sel === 'all' ? 'selected' : ''}>All periods</option>${months.map(m => `<option value="${m}" ${m === sel ? 'selected' : ''}>${fmtMonth(m)}</option>`).join('')}</select></div></div>
       ${shown.length ? [...groups.entries()].map(([m, list]) => {
@@ -918,7 +1059,7 @@ const Engine = (() => {
       <section class="card">
         <h2>Export data</h2>
         <p class="lede">Download all loans, payments, borrowers and collateral as an Excel workbook.</p>
-        <div class="btns"><button class="btn" type="button" data-act="export" ${S.downloads ? '' : 'disabled'}>Export to Excel</button></div>
+        <div class="btns"><button class="btn" type="button" data-act="export" ${S.downloads ? '' : 'disabled'}>${ico('download')}Export to Excel</button></div>
         ${S.downloads ? '' : '<p class="hint">Export is available when this page is open in Claude.</p>'}
       </section>
       <section class="card">
@@ -972,24 +1113,53 @@ const Engine = (() => {
     d.innerHTML = html;
     const form = d.querySelector('form');
     const err = form.querySelector('.form-error');
+    let dirty = false;
+    form.addEventListener('input', e => { if (e.isTrusted) dirty = true; });
+    const clearErrors = () => {
+      if (err) err.hidden = true;
+      form.querySelectorAll('.field-error').forEach(x => x.remove());
+      form.querySelectorAll('[aria-invalid]').forEach(x => { x.removeAttribute('aria-invalid'); x.removeAttribute('aria-describedby'); });
+    };
     form.addEventListener('submit', async e => {
       e.preventDefault();
       const btn = form.querySelector('[type="submit"]');
       if (btn.disabled) return;
-      btn.disabled = true;
-      if (err) err.hidden = true;
-      try { await onSubmit(form); d.close(); }
+      const label = btn.innerHTML;
+      btn.disabled = true; btn.textContent = 'Saving…';
+      clearErrors();
+      try { await onSubmit(form); dirty = false; d.close(); }
       catch (ex) {
         if (!(ex instanceof UserError)) console.error(ex);
-        if (err) { err.textContent = errText(ex); err.hidden = false; err.scrollIntoView({ block: 'nearest' }); }
-      } finally { btn.disabled = false; }
+        const target = ex instanceof UserError && ex.field ? form.querySelector('#' + ex.field) : null;
+        const box = target && target.closest('.field');
+        if (box && !target.closest('[hidden]')) {
+          const m = document.createElement('div');
+          m.className = 'field-error'; m.id = ex.field + '-err'; m.setAttribute('role', 'alert'); m.textContent = ex.message;
+          box.appendChild(m);
+          target.setAttribute('aria-invalid', 'true'); target.setAttribute('aria-describedby', m.id);
+          target.focus();
+        } else if (err) { err.textContent = errText(ex); err.hidden = false; err.scrollIntoView({ block: 'nearest' }); }
+      } finally { btn.disabled = false; btn.innerHTML = label; }
     });
-    form.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', () => d.close()));
+    const tryClose = async () => {
+      if (dirty && !await ask({ title: 'Discard changes?', body: 'The details you entered in this form will be lost.', ok: 'Discard' })) return;
+      dirty = false; d.close();
+    };
+    form.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', tryClose));
+    d.oncancel = e => { e.preventDefault(); tryClose(); };
     if (onMount) onMount(form);
+    form.querySelectorAll('input[type="date"]').forEach(inp => {
+      const echo = document.createElement('div');
+      echo.className = 'hint date-echo'; echo.setAttribute('aria-hidden', 'true');
+      inp.after(echo);
+      const upd = () => { echo.textContent = Engine.isDate(inp.value) ? `${WEEKDAY[new Date(inp.value + 'T00:00:00Z').getUTCDay()]}, ${fmtDate(inp.value)}` : ''; };
+      inp.addEventListener('input', upd); inp.addEventListener('change', upd); upd();
+    });
     d.showModal();
+    if (document.activeElement && document.activeElement.matches('.sheet-head [data-close]')) { const first = form.querySelector('.sheet-body select, .sheet-body input:not([type="checkbox"])'); if (first) first.focus(); }
   }
   const sheetShell = (title, body, submitLabel) => `<form novalidate>
-    <div class="sheet-head"><h2 id="sheet-title">${title}</h2></div>
+    <div class="sheet-head"><h2 id="sheet-title">${title}</h2><button type="button" class="icon-btn" data-close aria-label="Close">${ico('x')}</button></div>
     <div class="sheet-body">${body}<p class="form-error" role="alert" hidden></p></div>
     <div class="sheet-foot"><button type="button" class="btn" data-close>Cancel</button><button type="submit" class="btn primary">${submitLabel}</button></div>
   </form>`;
@@ -1008,10 +1178,10 @@ const Engine = (() => {
     });
   }
 
-  function amountOrNull(raw, label) {
+  function amountOrNull(raw, label, fieldId) {
     if (!raw) return null;
     const n = toNum(raw);
-    if (!Number.isFinite(n) || n < 0) throw new UserError(`${label} must be a number, like 1500.`);
+    if (!Number.isFinite(n) || n < 0) throw new UserError(`${label} must be a number, like 1500.`, fieldId);
     return Engine.round2(n);
   }
 
@@ -1032,13 +1202,13 @@ const Engine = (() => {
     const isNew = !b;
     const B = b || {};
     openSheet(sheetShell(isNew ? 'Add borrower' : 'Edit borrower', `
-      ${field('b-name', 'Full name', `<input id="b-name" name="fullName" autocomplete="off" value="${esc(B.name)}">`)}
+      ${field('b-name', 'Full name', `<input id="b-name" name="fullName" autocomplete="off" value="${esc(B.name)}">`, '', true)}
       ${contactFields('b', B)}
-      ${field('b-notes', 'Notes', `<textarea id="b-notes" name="notes" rows="2">${esc(B.notes)}</textarea>`)}`, isNew ? 'Add borrower' : 'Save'), {
+      ${field('b-notes', 'Notes', `<textarea id="b-notes" name="notes" rows="2">${esc(B.notes)}</textarea>`)}`, isNew ? 'Add borrower' : 'Save changes'), {
       onMount: form => setTimeout(() => form.elements.namedItem('fullName').focus(), 30),
       onSubmit: async form => {
         const name = fv(form, 'fullName');
-        if (!name) throw new UserError('Enter the borrower’s name.');
+        if (!name) throw new UserError('Enter the borrower’s name.', 'b-name');
         const data = { name, ...readContact(form), notes: fv(form, 'notes'), updatedAt: new Date().toISOString() };
         if (isNew) {
           const id = newId('b');
@@ -1058,7 +1228,7 @@ const Engine = (() => {
     return `
     <div class="grid2">
       ${field(p + '-kind', 'Property type', `<select id="${p}-kind" name="kind">${['Land', 'House', 'Land and house', 'Apartment', 'Other'].map(k => `<option ${k === (t.kind || 'Land') ? 'selected' : ''}>${k}</option>`).join('')}</select>`)}
-      ${field(p + '-doctype', 'Document type', `<input id="${p}-doctype" name="docType" list="${p}-doctypes" autocomplete="off" value="${esc(t.docType)}" placeholder="Hard title">
+      ${field(p + '-doctype', 'Document type', `<input id="${p}-doctype" name="docType" list="${p}-doctypes" autocomplete="off" value="${esc(t.docType)}" placeholder="e.g. Hard title">
         <datalist id="${p}-doctypes"><option value="Hard title"><option value="Soft title"><option value="Ownership certificate"><option value="Sale contract"></datalist>`)}
     </div>
     <div class="grid2">
@@ -1068,14 +1238,14 @@ const Engine = (() => {
     ${field(p + '-loc', 'Property location', `<input id="${p}-loc" name="location" autocomplete="off" value="${esc(t.location)}">`)}
     <div class="grid2">
       ${field(p + '-size', 'Land area (m²)', `<input id="${p}-size" name="sizeM2" inputmode="decimal" value="${t.sizeM2 ?? ''}">`)}
-      ${field(p + '-value', 'Estimated value (USD)', `<input id="${p}-value" name="value" inputmode="decimal" value="${t.value ?? ''}">`)}
+      ${field(p + '-value', 'Estimated value', moneyIn(p + '-value', 'value', t.value ?? ''))}
     </div>
-    ${field(p + '-kept', 'Storage location', `<input id="${p}-kept" name="keptAt" list="${p}-places" autocomplete="off" value="${esc(t.keptAt)}" placeholder="Office safe">
+    ${field(p + '-kept', 'Storage location', `<input id="${p}-kept" name="keptAt" list="${p}-places" autocomplete="off" value="${esc(t.keptAt)}" placeholder="e.g. Office safe">
       <datalist id="${p}-places">${places.map(x => `<option value="${esc(x)}">`).join('')}</datalist>`)}`;
   };
   const readTitle = form => ({
     kind: fv(form, 'kind') || 'Land', docType: fv(form, 'docType'), titleNumber: fv(form, 'titleNumber'), ownerName: fv(form, 'ownerName'),
-    location: fv(form, 'location'), sizeM2: amountOrNull(fv(form, 'sizeM2'), 'Land area'), value: amountOrNull(fv(form, 'value'), 'Estimated value'), keptAt: fv(form, 'keptAt'),
+    location: fv(form, 'location'), sizeM2: amountOrNull(fv(form, 'sizeM2'), 'Land area', form.querySelector('[name="sizeM2"]').id), value: amountOrNull(fv(form, 'value'), 'Estimated value', form.querySelector('[name="value"]').id), keptAt: fv(form, 'keptAt'),
   });
   const titleTouched = form => ['docType', 'titleNumber', 'ownerName', 'location', 'sizeM2', 'value', 'keptAt'].some(n => fv(form, n));
 
@@ -1092,18 +1262,18 @@ const Engine = (() => {
       ${field('l-borrower', 'Borrower', `<select id="l-borrower" name="borrowerId">
         <option value="" disabled ${sel === '' ? 'selected' : ''}>Select borrower</option>
         ${list.map(b => `<option value="${esc(b.id)}" ${b.id === sel ? 'selected' : ''}>${esc(b.name)}${b.phone ? ' · ' + esc(b.phone) : ''}</option>`).join('')}
-        <option value="__new" ${sel === '__new' ? 'selected' : ''}>+ Add new borrower</option></select>`)}
+        <option value="__new" ${sel === '__new' ? 'selected' : ''}>+ Add new borrower</option></select>`, '', true)}
       <fieldset id="l-newb" ${sel === '__new' ? '' : 'hidden'}><legend>New borrower details</legend>
-        ${field('l-bname', 'Full name', '<input id="l-bname" name="fullName" autocomplete="off">')}
+        ${field('l-bname', 'Full name', '<input id="l-bname" name="fullName" autocomplete="off">', '', true)}
         ${contactFields('lb')}
       </fieldset>
       <div class="grid2">
-        ${field('l-start', 'Disbursement date', `<input id="l-start" name="startDate" type="date" value="${esc(L.startDate || today())}">`)}
-        ${field('l-amount', 'Amount lent (USD)', `<input id="l-amount" name="principal" inputmode="decimal" placeholder="5000" value="${L.principal ?? ''}">`)}
+        ${field('l-start', 'Disbursement date', `<input id="l-start" name="startDate" type="date" value="${esc(L.startDate || today())}">`, '', true)}
+        ${field('l-amount', 'Principal amount', moneyIn('l-amount', 'principal', L.principal ?? '', 'e.g. 5,000'), '', true)}
       </div>
       <div class="grid2">
-        ${field('l-rate', 'Monthly interest rate (%)', `<div class="with-chips"><input id="l-rate" name="rate" inputmode="decimal" value="${ratePct}"><button type="button" data-rate="2" aria-pressed="${ratePct === 2}">2%</button><button type="button" data-rate="3" aria-pressed="${ratePct === 3}">3%</button></div>`)}
-        ${field('l-term', 'Term (months)', `<input id="l-term" name="termMonths" inputmode="numeric" placeholder="12" value="${L.termMonths ?? ''}">`, 'Optional. Leave blank for an open-ended loan.')}
+        ${field('l-rate', 'Monthly interest rate (%)', `<div class="with-chips"><input id="l-rate" name="rate" inputmode="decimal" value="${ratePct}"><button type="button" data-rate="2" aria-label="Set rate to 2%" aria-pressed="${ratePct === 2}">2%</button><button type="button" data-rate="3" aria-label="Set rate to 3%" aria-pressed="${ratePct === 3}">3%</button></div>`, '', true)}
+        ${field('l-term', 'Term (months)', `<input id="l-term" name="termMonths" inputmode="numeric" placeholder="e.g. 12" value="${L.termMonths ?? ''}">`, 'Optional. Leave blank for an open-ended loan.')}
       </div>
       <div class="infobox" id="l-preview" aria-live="polite"></div>
       ${field('l-notes', 'Notes', `<textarea id="l-notes" name="notes" rows="2">${esc(L.notes)}</textarea>`)}
@@ -1131,15 +1301,15 @@ const Engine = (() => {
       onSubmit: async form => {
         let bid = fv(form, 'borrowerId');
         const start = fv(form, 'startDate'), P = toNum(fv(form, 'principal')), rp = toNum(fv(form, 'rate')), termRaw = fv(form, 'termMonths');
-        if (!bid) throw new UserError('Select a borrower, or choose “+ Add new borrower”.');
-        if (bid === '__new' && !fv(form, 'fullName')) throw new UserError('Enter the new borrower’s name.');
-        if (!Engine.isDate(start)) throw new UserError('Enter the disbursement date.');
-        if (!(P > 0)) throw new UserError('Enter the principal amount, for example 5000.');
-        if (!(rp >= 0 && rp <= 100)) throw new UserError('Enter the monthly rate as a percent, for example 2 or 3.');
-        if (termRaw && !(/^\d+$/.test(termRaw) && +termRaw >= 1 && +termRaw <= 600)) throw new UserError('Term must be a whole number of months, like 12. Leave it blank for an open-ended loan.');
+        if (!bid) throw new UserError('Select a borrower, or choose “+ Add new borrower”.', 'l-borrower');
+        if (bid === '__new' && !fv(form, 'fullName')) throw new UserError('Enter the new borrower’s name.', 'l-bname');
+        if (!Engine.isDate(start)) throw new UserError('Enter the disbursement date.', 'l-start');
+        if (!(P > 0)) throw new UserError('Enter the principal amount, for example 5000.', 'l-amount');
+        if (!(rp >= 0 && rp <= 100)) throw new UserError('Enter the monthly rate as a percent, for example 2 or 3.', 'l-rate');
+        if (termRaw && !(/^\d+$/.test(termRaw) && +termRaw >= 1 && +termRaw <= 600)) throw new UserError('Term must be a whole number of months, like 12. Leave it blank for an open-ended loan.', 'l-term');
         const hasTitle = isNew && form.elements.namedItem('hasTitle').checked && titleTouched(form);
         const title = hasTitle ? readTitle(form) : null;
-        if (title && !title.titleNumber && !title.location) throw new UserError('Enter the title number or property location, or untick “Add collateral now”.');
+        if (title && !title.titleNumber && !title.location) throw new UserError('Enter the title number or property location, or untick “Add collateral now”.', 'lt-no');
         const now = new Date().toISOString();
         if (bid === '__new') {
           bid = newId('b');
@@ -1183,13 +1353,13 @@ const Engine = (() => {
     const fmtIn = n => (Number.isFinite(n) && n > 0 ? String(Engine.round2(n)) : '');
     openSheet(sheetShell(isNew ? (payoff ? 'Settle loan' : 'Record payment') : 'Edit payment', `
       ${field('p-loan', 'Loan', `<select id="p-loan" name="loanId"><option value="" disabled ${sel ? '' : 'selected'}>Select loan</option>
-        ${choices.map(({ l, c }) => `<option value="${l.id}" ${l.id === sel ? 'selected' : ''}>${esc(nameOf(l.borrowerId))} · ${loanNo(l)} · ${c.closed ? 'settled' : money(c.outstanding) + ' outstanding'}</option>`).join('')}</select>`)}
-      ${field('p-date', 'Payment date', `<input id="p-date" name="date" type="date" value="${esc(P0.date || today())}">`)}
+        ${choices.map(({ l, c }) => `<option value="${l.id}" ${l.id === sel ? 'selected' : ''}>${esc(nameOf(l.borrowerId))} · ${loanNo(l)} · ${c.closed ? 'settled' : money(c.outstanding) + ' outstanding'}</option>`).join('')}</select>`, '', true)}
+      ${field('p-date', 'Payment date', `<input id="p-date" name="date" type="date" value="${esc(P0.date || today())}">`, '', true)}
       <div class="infobox" id="p-info" aria-live="polite"></div>
       <div class="quick" id="p-quick"></div>
       <div class="grid2">
-        ${field('p-int', 'Interest amount', `<input id="p-int" name="interest" inputmode="decimal" placeholder="0" value="${P0.interest ? P0.interest : ''}">`)}
-        ${field('p-prin', 'Principal amount', `<input id="p-prin" name="principal" inputmode="decimal" placeholder="0" value="${P0.principal ? P0.principal : ''}">`, 'Repayment of principal only.')}
+        ${field('p-int', 'Interest amount', moneyIn('p-int', 'interest', P0.interest ? P0.interest : ''))}
+        ${field('p-prin', 'Principal amount', moneyIn('p-prin', 'principal', P0.principal ? P0.principal : ''), 'Repayment of principal only.')}
       </div>
       <div class="grid2">
         ${field('p-method', 'Payment method', `<input id="p-method" name="method" list="p-methods" autocomplete="off" value="${esc(P0.method ?? 'Cash')}"><datalist id="p-methods"><option value="Cash"><option value="Bank transfer"><option value="ABA"><option value="Wing"><option value="Other"></datalist>`)}
@@ -1259,13 +1429,13 @@ const Engine = (() => {
       onSubmit: async form => {
         const loanId = fv(form, 'loanId'), date = fv(form, 'date');
         const l = S.loans.get(loanId);
-        if (!l) throw new UserError('Select the loan this payment is for.');
-        if (!Engine.isDate(date)) throw new UserError('Enter the payment date.');
-        const i = amountOrNull(fv(form, 'interest'), 'Interest amount') || 0;
-        const p = amountOrNull(fv(form, 'principal'), 'Principal amount') || 0;
-        if (i + p <= 0) throw new UserError('Enter an interest amount, a principal amount, or both.');
+        if (!l) throw new UserError('Select the loan this payment is for.', 'p-loan');
+        if (!Engine.isDate(date)) throw new UserError('Enter the payment date.', 'p-date');
+        const i = amountOrNull(fv(form, 'interest'), 'Interest amount', 'p-int') || 0;
+        const p = amountOrNull(fv(form, 'principal'), 'Principal amount', 'p-prin') || 0;
+        if (i + p <= 0) throw new UserError('Enter an interest amount, a principal amount, or both.', 'p-int');
         const info = payInfo(loanId, date, P0.id);
-        if (info && p > info.c.outstanding + 0.004) throw new UserError(`Principal amount can’t exceed the ${money(info.c.outstanding)} outstanding.`);
+        if (info && p > info.c.outstanding + 0.004) throw new UserError(`Principal amount can’t exceed the ${money(info.c.outstanding)} outstanding.`, 'p-prin');
         const now = new Date().toISOString();
         const doc = { loanId, date, interest: i, principal: p, method: fv(form, 'method'), notes: fv(form, 'notes'), updatedAt: now };
         const wasClosed = info ? info.c.closed : false;
@@ -1291,7 +1461,7 @@ const Engine = (() => {
     const returned = T.status === 'Returned';
     openSheet(sheetShell(isNew ? 'Add collateral' : `Edit collateral ${esc(T.titleNumber || '')}`, `
       ${field('t-loan', 'Linked loan', `<select id="t-loan" name="loanId"><option value="" disabled ${sel ? '' : 'selected'}>Select loan</option>
-        ${loans.map(l => `<option value="${l.id}" ${l.id === sel ? 'selected' : ''}>${loanNo(l)} · ${esc(nameOf(l.borrowerId))} · ${money(Number(l.principal) || 0)}</option>`).join('')}</select>`)}
+        ${loans.map(l => `<option value="${l.id}" ${l.id === sel ? 'selected' : ''}>${loanNo(l)} · ${esc(nameOf(l.borrowerId))} · ${money(Number(l.principal) || 0)}</option>`).join('')}</select>`, '', true)}
       ${titleFields('t', T)}
       ${field('t-recv', 'Date received', `<input id="t-recv" name="receivedDate" type="date" value="${esc(T.receivedDate || (preset && preset.startDate) || today())}">`)}
       ${!isNew && returned ? `<div class="grid2">
@@ -1300,9 +1470,9 @@ const Engine = (() => {
       ${field('t-notes', 'Notes', `<textarea id="t-notes" name="notes" rows="2">${esc(T.notes)}</textarea>`)}`, isNew ? 'Save collateral' : 'Save changes'), {
       onSubmit: async form => {
         const lid = fv(form, 'loanId');
-        if (!S.loans.get(lid)) throw new UserError('Select the loan this collateral secures.');
+        if (!S.loans.get(lid)) throw new UserError('Select the loan this collateral secures.', 't-loan');
         const t = readTitle(form);
-        if (!t.titleNumber && !t.location) throw new UserError('Enter the title number or property location.');
+        if (!t.titleNumber && !t.location) throw new UserError('Enter the title number or property location.', 't-no');
         const recv = fv(form, 'receivedDate');
         const now = new Date().toISOString();
         const data = { ...t, loanId: lid, receivedDate: Engine.isDate(recv) ? recv : '', notes: fv(form, 'notes'), updatedAt: now };
@@ -1322,13 +1492,13 @@ const Engine = (() => {
       : c && c.interestOwed > 0.004 ? `<div class="infobox"><span class="warn-line">${money(c.interestOwed)} interest is still outstanding on this loan.</span></div>` : '';
     openSheet(sheetShell(`Return collateral ${esc(t.titleNumber || '')}`, `${warn}
       <div class="grid2">
-        ${field('r-date', 'Return date', `<input id="r-date" name="returnedDate" type="date" value="${today()}">`)}
+        ${field('r-date', 'Return date', `<input id="r-date" name="returnedDate" type="date" value="${today()}">`, '', true)}
         ${field('r-to', 'Returned to', `<input id="r-to" name="returnedTo" autocomplete="off" value="${esc((b && b.name || '').replace(/ \(example\)$/, ''))}">`, 'Person who received and signed for the title.')}
       </div>
       ${field('r-note', 'Return note', `<input id="r-note" name="returnNote" autocomplete="off" placeholder="e.g. Signed receipt kept on file">`)}`, 'Confirm return'), {
       onSubmit: async form => {
         const d = fv(form, 'returnedDate');
-        if (!Engine.isDate(d)) throw new UserError('Enter the return date.');
+        if (!Engine.isDate(d)) throw new UserError('Enter the return date.', 'r-date');
         await patch('titles/' + t.id, { status: 'Returned', returnedDate: d, returnedTo: fv(form, 'returnedTo'), returnNote: fv(form, 'returnNote'), updatedAt: new Date().toISOString() });
         toast('Collateral marked as returned');
       },
@@ -1548,6 +1718,7 @@ const Engine = (() => {
 
   // ---------- events ----------
   document.addEventListener('click', e => {
+    document.querySelectorAll('details.menu-wrap[open]').forEach(m => { if (!m.contains(e.target) || e.target.closest('.menu [data-act]')) m.open = false; });
     const el = e.target.closest('[data-act]');
     if (!el) return;
     const id = el.dataset.id;
@@ -1600,7 +1771,8 @@ const Engine = (() => {
     const img = e.target;
     if (img && img.tagName === 'IMG' && img.closest('.thumb')) img.closest('.thumb').classList.add('broken');
   }, true);
-  window.addEventListener('hashchange', () => { render(); window.scrollTo(0, 0); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') document.querySelectorAll('details.menu-wrap[open]').forEach(m => { m.open = false; m.querySelector('summary').focus(); }); });
+  window.addEventListener('hashchange', () => { document.querySelectorAll('details.menu-wrap[open]').forEach(m => { m.open = false; }); render(); window.scrollTo(0, 0); });
 
   // ---------- start ----------
   function onDbError(e) {
